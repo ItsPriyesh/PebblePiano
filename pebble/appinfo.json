@@ -1,0 +1,18 @@
+{
+  "uuid": "245b5782-02c0-4f80-adde-1f897add4407",
+  "shortName": "PebblePiano",
+  "longName": "PebblePiano",
+  "companyName": "PriyeshPatel",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt"],
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
