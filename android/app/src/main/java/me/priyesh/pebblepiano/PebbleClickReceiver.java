@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class PebbleClickReceiver {
 
-    public interface UpDownListener {
+    public interface PebbleClickListener {
         void onUpClicked();
         void onSelectClicked();
         void onDownClicked();
@@ -21,7 +21,7 @@ public class PebbleClickReceiver {
 
     private static final UUID APP_UUID = UUID.fromString("245b5782-02c0-4f80-adde-1f897add4407");
 
-    public static void register(final UpDownListener listener, Context context) {
+    public static void register(final PebbleClickListener listener, Context context) {
         PebbleKit.PebbleDataReceiver dataReceiver = new PebbleKit.PebbleDataReceiver(APP_UUID) {
             @Override
             public void receiveData(Context context, int i, PebbleDictionary dict) {

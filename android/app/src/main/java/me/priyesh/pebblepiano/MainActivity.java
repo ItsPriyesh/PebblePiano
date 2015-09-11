@@ -2,40 +2,37 @@ package me.priyesh.pebblepiano;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
-import com.getpebble.android.kit.PebbleKit;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements PebbleClickReceiver.UpDownListener {
+public class MainActivity extends AppCompatActivity implements PebbleClickReceiver.PebbleClickListener {
 
-    private TextView label;
+    @Bind(R.id.piano_view)
+    PianoView pianoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        label = (TextView) findViewById(R.id.label);
+        ButterKnife.bind(this);
 
         PebbleClickReceiver.register(this, getApplicationContext());
-        updateLabel(PebbleKit.isWatchConnected(this) ? "Connected" : "Not connected");
     }
 
     @Override
     public void onUpClicked() {
-        updateLabel("Up");
+        pianoView.pressKey(0);
     }
 
     @Override
     public void onSelectClicked() {
-        updateLabel("Select");
+        pianoView.pressKey(1);
     }
 
     @Override
     public void onDownClicked() {
-        updateLabel("Down");
+        pianoView.pressKey(2);
     }
 
-    private void updateLabel(String s) {
-        label.setText(s);
-    }
 }
